@@ -1,0 +1,42 @@
+.home{
+    background-color:pink;
+    font-size: 20px;
+    font-style: helvetica;
+}
+.container{
+    color: navy;
+    font-size: 20px;
+    font-style: helvetica;
+}
+.about{
+    background-color:plum;
+    font-size: 20px;
+    font-style: helvetica;
+}
+.error{
+    background-image: url(../css/errorPicture.png);
+    background-size: cover;
+    background-color: white;
+}
+.err, a{
+    text-align: center;
+    font-size: 25px;
+    font-style: bold;
+    color: green;
+
+}
+a:link {
+    color: rgb(127, 245, 127);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:visited {
+    color: pink;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:hover {
+    color: rgb(0, 255, 55);
+    background-color: transparent;
+    text-decoration: underline;
+  }
