@@ -14,7 +14,7 @@
     font-style: helvetica;
 }
 .error{
-    background-image: url(../css/errorPicture.png);
+    background-image: url(../css/errorpicture.png);
     background-size: cover;
     background-color: white;
 }
