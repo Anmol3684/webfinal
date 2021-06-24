@@ -30,6 +30,95 @@ module.exports.getAllEmployees = function(){
             resolve(employees);
 });
 }
+module.exports.addEmployee = function(employeeData){
+  return new Promise(function(resolve,reject){
+      employeeData.isManager = (employeeData.isManager)? true :false;
+      employeeData.employeeNum = employees.length +1;
+      employees.push(employeeData);
+      resolve();
+  })
+
+}
+module.exports.getEmployeesByStatus = function(status){
+  return new Promise((resolve,reject) => {
+      var department = new Array();
+
+      for(let i = 0; i < employees.length; i++)
+      {
+          if(employees[i].status == status)
+          {
+              department.push(employees[i]);
+          }
+      }
+
+      if(department.length == 0)
+      {
+          reject("No result returned.");
+      }
+
+      resolve(department);
+  })
+}
+
+
+module.exports.getEmployeesByDepartment = function(department){
+  return new Promise((resolve,reject) => {
+      var emp = new Array();
+
+      for(let i = 0; i < employees.length; i++)
+      {
+          if(employees[i].department == department){
+              emp.push(employees[i]);
+          }
+      }
+
+      if(emp.length == 0)
+      {
+          reject("No result returned.");
+      }
+      
+      resolve(emp);
+  })
+}
+
+module.exports.getEmployeesByManager  = function(manager){
+  return new Promise((resolve,reject) => {
+      var emp = new Array();
+
+      for(let i = 0; i < employees.length; i++)
+      {
+          if(employees[i].employeeManagerNum == manager){
+              emp.push(employees[i]);
+          }
+      }
+
+      if(emp.length == 0)
+      {
+          reject("No result returned.");
+      }
+      
+      resolve(emp);
+  })
+}
+
+module.exports.getEmployeeByNum  = function(num){
+  return new Promise((resolve,reject) => {
+      var emp = new Array();
+
+      for(let i = 0; i < employees.length; i++)
+      {
+          if(employees[i].employeeNum == num){
+              emp.push(employees[i]);
+          }
+      }
+
+      if(emp.length == 0)
+      {
+          reject("No result returned.");
+      }
+      resolve(emp);
+  })
+}
 //MANAGERS
 module.exports.getManagers = function(){
   return new Promise((resolve,reject) =>{
