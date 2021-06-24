@@ -4,9 +4,9 @@
 * of this assignment has been copied manually or electronically from any other source 
 * (including 3rd party web sites) or distributed to other students.
 * 
-* Name: _______Nurten YILDIRIM_______________ Student ID: ____141346197__________ Date: ___2021/06/10_____________
+* Name: Nurten YILDIRIM Student ID: 141346197 Date: 2021/06/10
 *
-* Online (Heroku) Link: ______________________________________________________
+* Online (Heroku) Link: https://afternoon-anchorage-52875.herokuapp.com
 ********************************************************************************/
 
 var express = require("express");
