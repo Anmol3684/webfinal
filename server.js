@@ -34,6 +34,12 @@ const storage = multer.diskStorage({
   function onHttpStart() {
   console.log("Express http server listening on: " + HTTP_PORT);
 }
+//ass4
+app.use(function(req,res,next){
+    let route = req.baseUrl + req.path;
+    app.locals.activeRoute = (route == "/") ? "/" : route.replace(/\/$/, ""); next();
+    }
+    );
 app.engine('.hbs', exphbs({ extname: '.hbs' ,
 helpers:{
     navLink: function(url, options){ return '<li' +
@@ -131,12 +137,7 @@ app.get("/employees",(req,res)=>{
  app.use((req,res)=>{
     res.sendFile(path.join(__dirname,"/views/error.html"));
 });
-//ass4
-app.use(function(req,res,next){
-    let route = req.baseUrl + req.path;
-    app.locals.activeRoute = (route == "/") ? "/" : route.replace(/\/$/, ""); next();
-    }
-    );
+
     
 
 
