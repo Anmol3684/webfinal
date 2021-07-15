@@ -30,11 +30,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 var HTTP_PORT = process.env.PORT || 8080;
 
-//ASSIGNMENT 3 PART
 const storage = multer.diskStorage({
     destination: "./public/images/uploaded",
     filename: function (req, file, cb) {
-      cb(null, Date.now() + path.extname(file.originalname));
+      cb(null, Date.now() + path.extname(file.originalName));
     }
   });
     const upload = multer({ storage: storage });
@@ -104,14 +103,14 @@ app.get("/employees",(req,res)=>{
         data.getEmployeesByManager(req.query.manager).then((data) =>{
             res.render("employees",{employees: data})
         }).catch((err) =>{
-            res.render({message: "No results."});
+            res.render({message: "No Results."});
          });
     }
     else
      data.getAllEmployees().then((data) =>{
         res.render("employees",{employees: data})
      }).catch((err) =>{
-        res.render({message: "No results."});
+        res.render({message: "No Results."});
      });
 
  });
@@ -120,7 +119,7 @@ app.get("/employees",(req,res)=>{
     data.getEmployeeByNum(req.params.empNum).then((data) =>{
         res.render("employee",{employee:data})
     }).catch((err) =>{
-        res.render("employee",{message:"no results"});
+        res.render("employee",{message:"No Results"});
      });
   });
 
