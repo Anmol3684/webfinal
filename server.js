@@ -1,3 +1,15 @@
+/*********************************************************************************
+* WEB322 – Assignment 04
+* I declare that this assignment is my own work in accordance with Seneca Academic Policy. No part 
+* of this assignment has been copied manually or electronically from any other source 
+* (including 3rd party web sites) or distributed to other students.
+* 
+* Name: Nurten YILDIRIM___________ Student ID: _141346197___________ Date: ___2021/07/16_____________
+*
+* Online (Heroku) Link: ________________________________________________________
+*
+********************************************************************************/
+
 var express = require("express");
 var app = express();
 var path = require("path");
@@ -21,7 +33,6 @@ equal: function (lvalue, rvalue, options) { if (arguments.length < 3)
     }
 }}));    
 
-
 app.set('view engine', '.hbs');
 
 app.use(express.static('public'));
@@ -33,7 +44,7 @@ var HTTP_PORT = process.env.PORT || 8080;
 const storage = multer.diskStorage({
     destination: "./public/images/uploaded",
     filename: function (req, file, cb) {
-      cb(null, Date.now() + path.extname(file.originalName));
+      cb(null, Date.now() + path.extname(file.originalname));
     }
   });
     const upload = multer({ storage: storage });
@@ -50,17 +61,14 @@ app.use(function(req,res,next){
     }
     );
   
-app.get("/employees/add", (req,res)=>{
-    res.render('addEmployee');
-});
-
+//images
 app.get("/images/add", (req,res)=>{
     res.render('addImage');
 });
 
 app.get("/images",(req,res)=>{
-    fs.readdir(("./public/images/uploaded"), (err, images) => {   
-        res.render("images", images);
+    fs.readdir(("./public/images/uploaded"),(err, items) => {   
+        res.render('images', {images: items});
     });
 });
 
@@ -68,12 +76,7 @@ app.post("/images/add", upload.single("imageFile"), (req, res) => {
     res.redirect("/images");
 });
 
-
-app.post("/employees/add",(req, res) => {
-    data.addEmployee(req.body).then(res.redirect('/employees'));
-  });
-
-//MAIN PART
+//home-about
 app.get("/", function(req,res){ 
     res.render('home');
 
@@ -82,7 +85,13 @@ app.get("/", function(req,res){
 app.get("/about", function(req,res){
     res.render('about');
 });
-
+//employees
+app.get("/employees/add", (req,res)=>{
+    res.render('addEmployee');
+});
+app.post("/employees/add",(req, res) => {
+    data.addEmployee(req.body).then(res.redirect('/employees'));
+});
 
 app.get("/employees",(req,res)=>{
     if(req.query.status){
@@ -103,14 +112,14 @@ app.get("/employees",(req,res)=>{
         data.getEmployeesByManager(req.query.manager).then((data) =>{
             res.render("employees",{employees: data})
         }).catch((err) =>{
-            res.render({message: "No Results."});
+            res.render({message: "No results."});
          });
     }
     else
      data.getAllEmployees().then((data) =>{
         res.render("employees",{employees: data})
      }).catch((err) =>{
-        res.render({message: "No Results."});
+        res.render({message: "No results."});
      });
 
  });
@@ -119,14 +128,14 @@ app.get("/employees",(req,res)=>{
     data.getEmployeeByNum(req.params.empNum).then((data) =>{
         res.render("employee",{employee:data})
     }).catch((err) =>{
-        res.render("employee",{message:"No Results"});
+        res.render("employee",{message:"No results."});
      });
   });
 
   app.post("/employee/update", (req, res) => {
       data.updateEmployee(req.body).then(res.redirect('/employees'));
 });
-
+//departments
  app.get("/departments",(req,res)=>{
     data.getDepartments().then((data) =>{
         res.render("departments",{departments: data});
@@ -134,8 +143,6 @@ app.get("/employees",(req,res)=>{
         res.render({message: "No results."});
      });
  });
-
-
  app.use((req,res)=>{
     res.sendFile(path.join(__dirname,"/views/error.html"));
 });

@@ -103,16 +103,15 @@ module.exports.getEmployeesByManager  = function(manager){
 
 module.exports.getEmployeeByNum  = function(num){
   return new Promise((resolve,reject) => {
-      var emp = new Array();
-
+          var emp = 0;
       for(let i = 0; i < employees.length; i++)
       {
           if(employees[i].employeeNum == num){
-              emp.push(employees[i]);
+             emp = employees[i];
           }
       }
 
-      if(emp.length == 0)
+      if(emp == 0)
       {
           reject("No result returned.");
       }
