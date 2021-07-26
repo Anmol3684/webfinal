@@ -2,6 +2,8 @@
     "cSpell.ignoreWords": [
         "exphbs",
         "lvalue",
-        "rvalue"
+        "postgres",
+        "rvalue",
+        "sequelize"
     ]
 }
