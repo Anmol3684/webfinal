@@ -1,15 +1,15 @@
 .home{
-    background-color:pink;
+    background-color:rgb(11, 51, 44);
     font-size: 20px;
     font-style: helvetica;
 }
 .container{
-    color: navy;
+    color: rgb(68, 128, 0);
     font-size: 20px;
     font-style: helvetica;
 }
 .about{
-    background-color:plum;
+    background-color:rgba(221, 160, 221, 0.459);
     font-size: 20px;
     font-style: helvetica;
 }
