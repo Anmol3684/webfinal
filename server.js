@@ -4,9 +4,9 @@
 assignment has been copied manually or electronically from any other source 
 * (including 3rd party web sites) or distributed to other students.
 * 
-* Name: _________Nurten Yildirim_____________ Student ID: __141346197____________ Date: ________2021/08/13bool divBy3(const int& val) { return val % 3  --0; }________
+* Name: _________Anmolsingh_____________ Student ID: __156800195____________ Date: ________8/13/2021________
 *
-* Online (Heroku) Link: _https://afternoon-anchorage-52875.herokuapp.com/login____________________________________________
+* Online (Heroku) Link: ____________________________________________
 *
 ********************************************************************************/ 
 var express = require("express");
