@@ -1,3 +1,14 @@
+/*********************************************************************************
+* WEB322 – Assignment 06
+* I declare that this assignment is my own work in accordance with Seneca Academic Policy. No part * of this 
+assignment has been copied manually or electronically from any other source 
+* (including 3rd party web sites) or distributed to other students.
+* 
+* Name: _________Nurten Yildirim_____________ Student ID: __141346197____________ Date: ________2021/08/13bool divBy3(const int& val) { return val % 3  --0; }________
+*
+* Online (Heroku) Link: _https://afternoon-anchorage-52875.herokuapp.com/login____________________________________________
+*
+********************************************************************************/ 
 var express = require("express");
 var app = express();
 var path = require("path");

@@ -18,17 +18,17 @@ var userSchema = new Schema({
   
   let User;
 
-  module.exports.initialize = function () {
-    return new Promise(function (resolve, reject) {
-    let db = mongoose.createConnection("mongodb+srv://nurten:nalan@cluster0.ah3at.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
-    db.on('error', (err)=>{
-    reject(err); 
-    });
-    db.once('open', ()=>{
-    User = db.model("users", userSchema);
-    resolve(); });
-    }); 
-};
+ //module.exports.initialize = function () {
+   // return new Promise(function (resolve, reject) {
+    //let db = mongoose.createConnection("mongodb+srv://ANMOL:Anmol@3684@webapp.ylf5a.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
+    //db.on('error', (err)=>{
+    //reject(err); 
+    //});
+    //db.once('open', ()=>{
+    //User = db.model("users", userSchema);
+    //resolve(); });
+    //}); 
+//};
 
 module.exports.RegisterUser = function (userData) {
   return new Promise(function (resolve, reject) {  
